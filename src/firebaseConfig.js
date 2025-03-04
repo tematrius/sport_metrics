@@ -1,9 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getDatabase, ref, onValue } from 'firebase/database';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDP7Wu0489r0uucWIuOPWb2AgQGWtca9bY",
     authDomain: "sportmetrics-24607.firebaseapp.com",
+    databaseURL: "https://sportmetrics-24607-default-rtdb.firebaseio.com/",
     projectId: "sportmetrics-24607",
     storageBucket: "sportmetrics-24607.firebasestorage.app",
     messagingSenderId: "729991242390",
@@ -12,6 +14,6 @@ const firebaseConfig = {
 
 // Initialisation Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = getDatabase(app);
 
-export { db };
+export { db, ref, onValue };
